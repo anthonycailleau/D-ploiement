@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kindle</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,7 @@
             <div class="screen">
                 <div class="screen-content">
                     <div class="header">
-                        <a href="index.php">⌂ Home</a>
+                        <a href="/api/index.php">⌂ Home</a>
                         <div class="date">
                             <?= date("H") . "h" . date("i") ?>
                         </div>
