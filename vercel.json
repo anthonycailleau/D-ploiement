@@ -1,47 +1,32 @@
 {
-  "functions": {
-    "api/index.php": {
-      "runtime": "vercel-php@0.7.1"
+    "functions": {
+      "api/index.php": {
+        "runtime": "vercel-php@0.7.1"
+      },
+      "api/livre.php": {
+        "runtime": "vercel-php@0.7.1"
+      }
     },
-    "api/escarbouche_bleue.php": {
-      "runtime": "vercel-php@0.7.1"
-    },
-    "api/etude_en_rouge.php": {
-      "runtime": "vercel-php@0.7.1"
-    },
-    "api/gentilhomme_celibataire.php": {
-      "runtime": "vercel-php@0.7.1"
-    },
-    "api/le_chien_des_baskerville.php": {
-      "runtime": "vercel-php@0.7.1"
-    },
-    "api/le_signe_des_quatres.php": {
-      "runtime": "vercel-php@0.7.1"
-    },
-    "api/un_scandale_en_boheme.php": {
-      "runtime": "vercel-php@0.7.1"
-    }
-  },
-  "routes": [
-    {
-      "src": "/script.js",
-      "dest": "/public/script.js"
-    },
-    {
-      "src": "/style.css",
-      "dest": "/public/style.css"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
-      "src": "/(.*).php",
-      "dest": "/api/$1.php"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.php"
-    }
-  ]
-}
+    "routes": [
+      {
+        "src": "/script.js",
+        "dest": "/public/script.js"
+      },
+      {
+        "src": "/style.css",
+        "dest": "/public/style.css"
+      },
+      {
+        "src": "/images/(.*)",
+        "dest": "/public/images/$1"
+      },
+      {
+        "src": "/(.*).php(.*)",
+        "dest": "/api/$1.php$2"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+      }
+    ]
+  }
