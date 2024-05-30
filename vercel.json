@@ -2,12 +2,8 @@
     "version": 2,
     "builds": [
       {
-        "src": "api/index.php",
-        "use": "@vercel/php"
-      },
-      {
-        "src": "api/livre.php",
-        "use": "@vercel/php"
+        "src": "api/*.php",
+        "use": "@vercel/static-build"
       }
     ],
     "routes": [
@@ -24,8 +20,8 @@
         "dest": "/public/images/$1"
       },
       {
-        "src": "/(.*).php(.*)",
-        "dest": "/api/$1.php$2"
+        "src": "/api/(.*).php",
+        "dest": "/api/$1.php"
       },
       {
         "src": "/(.*)",
