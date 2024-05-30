@@ -1,0 +1,32 @@
+{
+    "functions": {
+      "api/index.php": {
+        "runtime": "vercel-php@0.7.1"
+      },
+      "api/livre.php": {
+        "runtime": "vercel-php@0.7.1"
+      }
+    },
+    "routes": [
+      {
+        "src": "/script.js",
+        "dest": "/public/script.js"
+      },
+      {
+        "src": "/style.css",
+        "dest": "/public/style.css"
+      },
+      {
+        "src": "/images/(.*)",
+        "dest": "/public/images/$1"
+      },
+      {
+        "src": "/(.*).php(.*)",
+        "dest": "/api/$1.php$2"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/api/index.php"
+      }
+    ]
+  }
