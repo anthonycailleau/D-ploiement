@@ -1,4 +1,6 @@
-<?php include '../api/books.php'; ?>
+<?php
+$books = include '../books.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -14,13 +14,15 @@
                     <div class="header">
                         <a href="index.php">⌂ Home</a>
                         <div class="date">
-                            10h25
+                            <?= date("H") . "h" . date("i") ?>
                         </div>
                     </div>
                     <div class="book-content">
                         <?php
+                        // Récupère l'id du livre depuis le paramètre GET
                         if (isset($_GET['id'])) {
                             $id = $_GET['id'];
+                            // Inclut le fichier correspondant au livre depuis le dossier livres/
                             include "../livres/$id.php";
                         } else {
                             echo "Aucun livre sélectionné";

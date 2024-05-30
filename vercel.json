@@ -2,30 +2,25 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
+      "src": "public/**/*.php",
+      "use": "@vercel/php"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static-build"
     }
   ],
   "routes": [
     {
-      "src": "/script.js",
-      "dest": "/public/script.js"
-    },
-    {
-      "src": "/style.css",
-      "dest": "/public/style.css"
-    },
-    {
-      "src": "/images/(.*)",
-      "dest": "/public/images/$1"
-    },
-    {
-      "src": "/api/(.*).php",
-      "dest": "/api/$1.php"
+      "src": "/(.*).php",
+      "dest": "/public/$1.php"
     },
     {
       "src": "/(.*)",
-      "dest": "/server.js"
+      "dest": "/public/$1"
     }
-  ]
+  ],
+  "env": {
+    "NODE_VERSION": "18"
+  }
 }
