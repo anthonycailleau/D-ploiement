@@ -1,13 +1,27 @@
 {
   "version": 2,
-  "routes": [
+  "builds": [
     {
-      "src": "/api/(.*).php",
-      "dest": "/api/$1.php"
+      "src": "api/**/*.php",
+      "use": "@vercel/php"
     },
     {
-      "src": "/livres/(.*).php",
-      "dest": "/livres/$1.php"
+      "src": "livres/**/*.php",
+      "use": "@vercel/php"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/livres/(.*)",
+      "dest": "/livres/$1"
     },
     {
       "src": "/(.*)",
