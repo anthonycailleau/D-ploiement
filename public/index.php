@@ -1,4 +1,4 @@
-<?php include dirname(__DIR__).'/includes/books.php'; ?>
+<?php include '../api/books.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +17,7 @@
                     <div class="header">
                         <a href="index.php">⌂ Home</a>
                         <div class="date">
-                            10h25
+                            <?= date("H") . "h" . date("i") ?>
                         </div>
                     </div>
                     <h2> Ma liste de livres </h2>
