@@ -3,7 +3,7 @@
     "builds": [
       {
         "src": "api/*.php",
-        "use": "@vercel/static-build"
+        "use": "@vercel/php"
       }
     ],
     "routes": [
@@ -27,8 +27,5 @@
         "src": "/(.*)",
         "dest": "/api/index.php"
       }
-    ],
-    "env": {
-      "NODE_VERSION": "18.x"
-    }
+    ]
   }
