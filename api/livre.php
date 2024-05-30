@@ -1,3 +1,4 @@
+<?php date_default_timezone_set("Europe/Paris"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kindle</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -14,18 +15,19 @@
             <div class="screen">
                 <div class="screen-content">
                     <div class="header">
-                        <a href="index.php">⌂ Home</a>
+                        <a href="/index.php">⌂ Home</a>
                         <div class="date">
-                            10h25
+                            <!-- 10h25 -->
+                            <?= date("H") . "h" . date("i") ?>
                         </div>
                     </div>
                     <div class="book-content">
                         <?php
                         // Je récupère l'id du livre depuis le paramètre GET 
-                        if (isset($_GET['id'])) {
-                            $id = $_GET['id'];
+                        if (isset($_GET['title'])) {
+                            $key = $_GET['title'];
                             // J'inclus le fichier correspondant au livre depuis le dossier livres/
-                            include "livres/$id.php";
+                            include dirname(__DIR__)."/livres/$key.php";
                         } else {
                             echo "Aucun livre selectionné";
                         }
@@ -37,7 +39,4 @@
         </div>
     </div>
 </body>
-
-</html>
-
 </html>
