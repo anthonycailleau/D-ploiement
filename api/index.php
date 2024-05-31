@@ -1,5 +1,5 @@
 <?php
-$books = include '../books.php';
+$books = include __DIR__ . '/../books.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,24 +24,32 @@ $books = include '../books.php';
                     </div>
                     <h2> Ma liste de livres </h2>
                     <div class="grid-content" id="bookContainer">
-                        <?php foreach ($books as $key => $book) : ?>
-                            <a href="/api/livre.php?id=<?php echo $key; ?>">
-                                <div class="book">
-                                    <img src="/images/<?php echo $key; ?>.jpg" alt="<?php echo $book['titre']; ?>">
-                                </div>
-                            </a>
-                        <?php endforeach ?>
+                        <?php if (is_array($books) || is_object($books)) : ?>
+                            <?php foreach ($books as $key => $book) : ?>
+                                <a href="/api/livre.php?id=<?php echo $key; ?>">
+                                    <div class="book">
+                                        <img src="/images/<?php echo $key; ?>.jpg" alt="<?php echo $book['titre']; ?>">
+                                    </div>
+                                </a>
+                            <?php endforeach ?>
+                        <?php else : ?>
+                            <p>Aucun livre trouvé.</p>
+                        <?php endif ?>
                     </div>
                     <div class="list-content hidden" id="listContainer">
-                        <?php foreach ($books as $key => $book) : ?>
-                            <a href="/api/livre.php?id=<?php echo $key; ?>">
-                                <div class="books-detail">
-                                    <h4><?php echo $book['titre'] ?></h4>
-                                    <p><?php echo $book['auteur'] ?></p>
-                                    <p><?php echo $book['annee'] ?></p>
-                                </div>
-                            </a>
-                        <?php endforeach ?>
+                        <?php if (is_array($books) || is_object($books)) : ?>
+                            <?php foreach ($books as $key => $book) : ?>
+                                <a href="/api/livre.php?id=<?php echo $key; ?>">
+                                    <div class="books-detail">
+                                        <h4><?php echo $book['titre'] ?></h4>
+                                        <p><?php echo $book['auteur'] ?></p>
+                                        <p><?php echo $book['annee'] ?></p>
+                                    </div>
+                                </a>
+                            <?php endforeach ?>
+                        <?php else : ?>
+                            <p>Aucun livre trouvé.</p>
+                        <?php endif ?>
                     </div>
                     <button id="changeViewButton">
                         Changer de vue
